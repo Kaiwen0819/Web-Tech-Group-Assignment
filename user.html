@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Community Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <div class="header-content">
+      <h1 id="headerTitle">🏘️ Smart Community Hub</h1>
+      <nav role="navigation" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#announcements">Announcements</a>
+        <a href="login.html" class="logout-btn">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section id="home" aria-labelledby="welcome-heading">
+      <h2 id="welcome-heading">Welcome to Your Community</h2>
+      <p>Stay connected, informed, and engaged with your neighborhood. Access the latest updates, community services, and connect with your neighbors all in one place.</p>
+    </section>
+
+    <section id="announcements" aria-labelledby="announcements-heading">
+      <h2 id="announcements-heading">Latest Announcements</h2>
+      <p>Stay updated with the latest news, events, and important notices from your community.</p>
+      
+      <ul id="announcementsList" class="announcemenst" role="list">
+        
+      </ul>
+
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <h3>📅 Event Calendar</h3>
+          <div class="calendar-nav">
+            <button id="prevMonth">◀ Prev</button>
+            <span class="current-month" id="currentMonth">February 2026</span>
+            <button id="nextMonth">Next ▶</button>
+          </div>
+        </div>
+
+        <div class="calendar-grid" id="calendarGrid"></div>
+
+        <div id="eventDetails" class="event-details">
+          <h4 id="selectedDate">Events for this day</h4>
+          <div id="eventsList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2026 Smart Community Hub. Building stronger neighborhoods together.</p>
+  </footer>
+
+<!-- MAIN JS -->
+<script src="js/user.js"></script>
+</body>
+</html>
