@@ -83,7 +83,7 @@
     throw new Error(data.error || "Failed to post announcement");
   }
 
-  // ✅ 成功后你再把它 insert 到 announcementsList（你原本那段 create li 的代码可以保留）
+  // ✅ After successful insertion, you can then insert it into the announcementsList
   announcementMessage.textContent = `✅ Posted! ID: ${data.id}`;
   announcementMessage.className = "success";
   announcementMessage.style.display = "block";

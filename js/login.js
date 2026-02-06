@@ -14,7 +14,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    // ✅ 登录成功后，把资料存进 localStorage（给 admin.js 用）
+    // ✅ After successful login, save the data to localStorage (for use by admin.js)
     const role = email.includes("admin") ? "admin" : "user";
 
     localStorage.setItem(
@@ -22,12 +22,12 @@ form.addEventListener("submit", async (e) => {
     JSON.stringify({
     email,
     role,
-    // 也可以存 uid（可选）
+    // You can also store the uid (optional)）
     uid: auth.currentUser?.uid || ""
   })
 );
 
-    // ✅ 登录成功 → 跳页（你自己规则：含 admin 就去 admin）
+    // ✅ Login successful → Jump to page (your own rules: if it contains "admin", go to "admin").
     if (email.includes("admin")) {
       window.location.href = "admin.html";
     } else {

@@ -7,112 +7,179 @@
   <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-  <!-- Video Background -->
+  <!-- Background -->
   <div class="video-bg" aria-hidden="true">
     <video class="bg-video" autoplay muted loop playsinline>
       <source src="video/community.mp4" type="video/mp4" />
-      <!-- If the browser does not support video, the following will be displayed -->
     </video>
     <div class="overlay"></div>
   </div>
-  
 
-  <!-- Content -->
-  <main class="hero">
-    <div class="card">
-      <div class="brand">
-        <span class="logo">🏘️</span>
-        <h1>Smart Community Hub</h1>
-      </div>
+  <!-- Top Nav -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="Smart Community Hub Home">
+        <span class="brand-badge">🏘️</span>
+        <span class="brand-text">Smart Community Hub</span>
+      </a>
 
-      <p class="subtitle">
-        Stay connected with your neighborhood — announcements, events, and important updates in one place.
-      </p>
-
-      <div class="features">
-        <div class="feature">
-          <div class="dot"></div>
-          <span>Real-time announcements & events</span>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <div class="nav-actions">
+          <a class="btn ghost" href="register.html">Create account</a>
+          <a class="btn primary" href="login.html">Login</a>
         </div>
-        <div class="feature">
-          <div class="dot"></div>
-          <span>Admin can post / edit / delete</span>
-        </div>
-        <div class="feature">
-          <div class="dot"></div>
-          <span>Calendar view to track community activities</span>
-        </div>
-      </div>
-
-      <div class="actions">
-        <a class="btn primary" href="login.html">Go to Login</a>
-        <a class="btn ghost" href="register.html">Create Account</a>
-      </div>
-
-      <p class="hint">
-        Tip: Use demo accounts on login page if provided.
-      </p>
+      </nav>
     </div>
-    <section id="about" class="about">
-  <div class="about-card">
-    <h2>About Smart Community Hub</h2>
-    <p class="about-desc">
-      Smart Community Hub is a web-based platform designed to help residents
-      stay informed about community announcements, events, and important updates.
-      The system supports role-based access for administrators and users,
-      ensuring efficient content management and accessibility.
-    </p>
+  </header>
 
-    <h3>Our Team</h3>
+  <main class="landing">
+    <!-- Hero -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <p class="eyebrow">Community • Announcements • Events</p>
+          <h1 class="title">One place for your community updates.</h1>
+          <p class="subtitle">
+            Smart Community Hub helps residents stay informed with announcements, events,
+            and important notices — with role-based access for admins and users.
+          </p>
 
-    <div class="team-grid">
-      <!-- Member 1 -->
-      <div class="member">
-        <div class="avatar">👨‍💻</div>
-        <h4>Leong Kai Wen</h4>
-        <p class="role">Full Stack Developer</p>
-        <ul>
-          <li>Frontend UI & UX</li>
-          <li>Firebase Authentication</li>
-          <li>Admin & User Logic</li>
-        </ul>
+          <div class="cta">
+            <a class="btn primary" href="login.html">Go to Login</a>
+            <a class="btn ghost" href="register.html">Create Account</a>
+          </div>
+
+          <p class="hint">Tip: Use demo accounts on the login page if provided.</p>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-head">
+              <div class="mini-icon">📌</div>
+              <div>
+                <div class="mini-title">Today’s Highlights</div>
+                <div class="mini-sub">Quick overview for residents</div>
+              </div>
+            </div>
+
+            <div class="mini-list">
+              <div class="mini-item">
+                <div class="mini-dot"></div>
+                <div>
+                  <div class="mini-item-title">Real-time announcements</div>
+                  <div class="mini-item-desc">Stay updated with the latest news.</div>
+                </div>
+              </div>
+              <div class="mini-item">
+                <div class="mini-dot"></div>
+                <div>
+                  <div class="mini-item-title">Admin management</div>
+                  <div class="mini-item-desc">Create, edit, delete community posts.</div>
+                </div>
+              </div>
+              <div class="mini-item">
+                <div class="mini-dot"></div>
+                <div>
+                  <div class="mini-item-title">Calendar view</div>
+                  <div class="mini-item-desc">Track community events easily.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-card-foot">
+              <span class="pill">Role-based access</span>
+              <span class="pill">Responsive UI</span>
+              <span class="pill">Modern design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section">
+      <div class="section-head">
+        <h2>Features</h2>
+        <p>Everything you need to keep your neighborhood connected.</p>
       </div>
 
-      <!-- Member 2 -->
-      <div class="member">
-        <div class="avatar">🎨</div>
-        <h4>Valent</h4>
-        <p class="role">Frontend Developer</p>
-        <ul>
-          <li>Landing Page Design</li>
-          <li>CSS Styling</li>
-          <li>Responsive Layout</li>
-        </ul>
+      <div class="grid3">
+        <article class="feature-card">
+          <div class="ficon">📰</div>
+          <h3>Announcements</h3>
+          <p>Publish notices, events, and alerts with clear categories.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="ficon">🗓️</div>
+          <h3>Event Calendar</h3>
+          <p>Visualize activities by date and quickly find what’s happening.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="ficon">🔐</div>
+          <h3>Role Access</h3>
+          <p>Admins manage content, users view updates — simple and secure.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- About + Team -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <h2>About Smart Community Hub</h2>
+        <p>
+          A web-based platform designed to help residents stay informed about announcements,
+          events, and important updates — with efficient content management for admins.
+        </p>
       </div>
 
-      <!-- Member 3 -->
-      <div class="member">
-        <div class="avatar">🛠️</div>
-        <h4>Team Member 3</h4>
-        <p class="role">Backend Developer</p>
-        <ul>
-          <li>API Development</li>
-          <li>Firestore Integration</li>
-          <li>CRUD Operations</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+      <div class="team-wrap">
+        <h3 class="section-subtitle">Our Team</h3>
 
+        <div class="team-grid">
+          <div class="member">
+            <div class="avatar">👨‍💻</div>
+            <h4>Leong Kai Wen</h4>
+            <p class="role">Backend Developer</p>
+            <ul>
+              <li>Server-side Logic</li>
+              <li>Database Design & Management</li>
+              <li>Firebase / Backend Integration</li>
+            </ul>
+          </div>
+
+          <div class="member">
+            <div class="avatar">🎨</div>
+            <h4>Valent</h4>
+            <p class="role">Frontend Developer</p>
+            <ul>
+              <li>HTML Structure</li>
+              <li>CSS Styling & Layout</li>
+              <li>UI Design & Responsiveness</li>
+            </ul>
+          </div>
+
+          <div class="member">
+            <div class="avatar">🧩</div>
+            <h4>Herashini Raman</h4>
+            <p class="role">Prototype Designer</p>
+            <ul>
+              <li>UI Prototype & Wireframe</li>
+              <li>Design Concept Planning</li>
+              <li>Early-stage System Mockup</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Smart Community Hub</p>
+      <p>Building stronger neighborhoods together</p>
+    </footer>
   </main>
-  
 </body>
-
-<footer class="footer">
-  <p>© 2026 Smart Community Hub</p>
-  <p>Building stronger neighborhoods together</p>
-</footer>
 </html>
-
-

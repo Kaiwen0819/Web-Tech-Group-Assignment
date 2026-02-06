@@ -31,7 +31,7 @@ router.post("/", async (req, res, next) => {
 
     let newSeq = 0;
 
-    // 🔥 Transaction 保证 seq 不会重复
+    // 🔥 A transaction guarantees that the sequence number (seq) will not be repeated.
     await db.runTransaction(async (tx) => {
       const counterSnap = await tx.get(counterRef);
 

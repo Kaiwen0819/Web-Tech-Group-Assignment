@@ -170,7 +170,7 @@
     const sorted = [...announcements].sort((a, b) => {
       const sa = Number(a.seq || 0);
       const sb = Number(b.seq || 0);
-      if (sa && sb) return sb - sa; // seq 大的在前（最新）
+      if (sa && sb) return sb - sa; // The larger (latest) seq value comes first
       return String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
     });
 
@@ -290,7 +290,7 @@
 
     const cellDateObj = new Date(year, monthIndex, day);
 
-    // ✅ today 紫色格子（只在“本月格子”才显示）
+    // ✅ Today's purple squares (only displayed in "This Month's Squares")
     if (!isOtherMonth && isSameDay(cellDateObj, new Date())) {
       cell.classList.add("today");
     }
@@ -357,6 +357,16 @@
     });
 
     eventDetails.classList.add("active");
+    eventDetails.classList.add('active');
+
+  // ✅ Automatically scroll to the details section below (smooth)
+    setTimeout(() => {
+    eventDetails.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  // ✅ Optional: Accessibility feature, allowing the keyboard/screen reader to know that the focus is on this area.
+    eventDetails.setAttribute("tabindex", "-1");
+    eventDetails.focus({ preventScroll: true });
+    }, 50);
   }
 
   // =========================
@@ -432,10 +442,10 @@
           showMessage("✅ Posted!", "success", 1200);
         }
 
-        // ✅ 自动刷新列表 + 日历
+        // ✅ Automatically refresh list + calendar
         await refreshAll();
 
-        // ✅ 1.2s 后收起表单 + 提示
+        // ✅ Collapse the form in 1.2 seconds + Tip
         setTimeout(() => hideFormAndMessage(), 1200);
       } catch (err) {
         console.error(err);
@@ -463,7 +473,7 @@
 
       // ===== Edit =====
       if (editBtn) {
-        // 打开表单并填充
+        // Open the form and fill it in
         if (announcementFormContainer) announcementFormContainer.classList.add("active");
         if (addAnnouncementBtn) addAnnouncementBtn.style.display = "none";
 
@@ -491,7 +501,7 @@
           await apiDeleteAnnouncement(id);
           showMessage("✅ Deleted!", "success", 1000);
 
-          // ✅ 自动刷新列表 + 日历
+          // ✅ Automatically refresh list + calendar
           await refreshAll();
         } catch (err) {
           console.error(err);

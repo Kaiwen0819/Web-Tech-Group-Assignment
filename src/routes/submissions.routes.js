@@ -3,16 +3,16 @@ const express = require("express");
 const { db, admin } = require("../firebaseAdmin");
 const router = express.Router();
 
-// ✅ register 存在 registrations collection
+// ✅ register exists registrations collection
 const col = db.collection("registrations");
 
-// ✅ 把名字变成可当 Firestore doc id 的格式（不乱码、不空格）
+// ✅ Convert the name into a format that can be used as a Firestore doc ID
 function slugifyName(fullName) {
   return String(fullName)
     .trim()
     .toLowerCase()
-    .replace(/\s+/g, "-")       // 空格 -> -
-    .replace(/[^a-z0-9\-]/g, ""); // 只保留 a-z 0-9 -
+    .replace(/\s+/g, "-")       // Space -> -
+    .replace(/[^a-z0-9\-]/g, ""); // Keep only a-z 0-9 -
 }
 
 router.post("/", async (req, res, next) => {
@@ -28,7 +28,7 @@ router.post("/", async (req, res, next) => {
       return res.status(400).json({ error: "Invalid fullName" });
     }
 
-    // ✅ 如果同名，自动加尾巴避免冲突（例如 ali-test-1700000000000）
+    // ✅ If there are duplicate names, a suffix will be automatically added to avoid conflicts (e.g., ali-test-1700000000000).
     let docId = baseId;
     const existing = await col.doc(docId).get();
     if (existing.exists) {

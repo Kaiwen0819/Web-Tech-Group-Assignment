@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="css/login.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login • Smart Community Hub</title>
+  <link rel="stylesheet" href="css/login.css">
 </head>
-<body>
-  <div class="login-container">
-    <div class="login-header">
-      <h1>🏘️ Smart Community Hub</h1>
-      <p>Welcome back! Please login to continue</p>
-    </div>
+<body class="auth-page">
+  
+  <main class="auth-shell" aria-label="Login">
+    <a class="auth-brand" href="index.html">
+      <span class="auth-badge">🏘️</span>
+      <span class="auth-brand-text">Smart Community Hub</span>
+    </a>
 
-    <form id="loginForm">
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input 
-          type="email" 
-          id="email" 
-          placeholder="Enter your email" 
-          required
-          autocomplete="email"
-        >
+    <section class="auth-card" aria-label="Login form">
+      <header class="auth-header">
+        <h1>Welcome back</h1>
+        <p>Please login to continue.</p>
+      </header>
+
+      <form id="loginForm" class="auth-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+            autocomplete="current-password"
+          >
+        </div>
+
+        <button type="submit" class="btn primary">Login</button>
+        <div id="message" class="message" aria-live="polite"></div>
+      </form>
+
+      <div class="demo-info" aria-label="Demo credentials">
+        <div class="demo-title">Demo Credentials</div>
+        <div class="demo-row"><strong>User:</strong> Example@gmail.com / user123</div>
+        <div class="demo-row"><strong>Admin:</strong> adminExample@gmail.com / admin123</div>
       </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input 
-          type="password" 
-          id="password" 
-          placeholder="Enter your password" 
-          required
-          autocomplete="current-password"
-        >
+      <div class="auth-footer">
+        Don’t have an account? <a href="register.html">Create one</a>
       </div>
+    </section>
 
-      <button type="submit">Login</button>
-      
-      <div id="message" class="message"></div>
-    </form>
+    <p class="auth-note">© 2026 Smart Community Hub</p>
+  </main>
 
-    <div class="demo-info">
-      <strong>📋 Demo Credentials</strong>
-      <p><strong>User:</strong> user@community.com / user123</p>
-      <p><strong>Admin:</strong> admin@community.com / admin123</p>
-    </div>
-
-    <div class="register-link">
-      Don't have an account? <a href="register.html">Register here</a>
-    </div>
-  </div>
   <script type="module" src="js/login.js"></script>
 </body>
 </html>

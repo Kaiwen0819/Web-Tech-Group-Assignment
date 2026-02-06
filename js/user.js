@@ -8,13 +8,12 @@
 
   const user = JSON.parse(currentUser);
 
-  // admin 不该进 user.html
+  // admin shouldn't be in user.html
   if (user.role === "admin") {
     window.location.href = "admin.html";
     return;
   }
 
-  // 你现在 Welcome undefined 是因为 user.name 没有值（firebase 登录时你没存 name）
   const displayName = user.name || user.email || "User";
   document.getElementById("headerTitle").textContent =
     `🏘️ Smart Community Hub - Welcome, ${displayName}`;
@@ -27,7 +26,7 @@ document.querySelector(".logout-btn").addEventListener("click", function (e) {
   window.location.href = "login.html";
 });
 
-// ===== Calendar + announcements (放在同一个 IIFE 里，renderCalendar 才能被调用) =====
+// ===== Calendar + announcements (must be placed in the same IIFE for renderCalendar to be called) =====
 (function () {
   let currentDate = new Date(2026, 1, 1);
   let __fp = "";
@@ -98,6 +97,7 @@ document.querySelector(".logout-btn").addEventListener("click", function (e) {
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
+    
     currentMonthDisplay.textContent = `${monthNames[month]} ${year}`;
 
     calendarGrid.innerHTML = "";
@@ -202,6 +202,17 @@ document.querySelector(".logout-btn").addEventListener("click", function (e) {
     });
 
     eventDetails.classList.add("active");
+    eventDetails.classList.add('active');
+
+  // ✅ Automatically scroll to the details section below (smooth)
+    setTimeout(() => {
+    eventDetails.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  // ✅ Optional: Accessibility feature, allowing the keyboard/screen reader to know that the focus is on this area
+    eventDetails.setAttribute("tabindex", "-1");
+    eventDetails.focus({ preventScroll: true });
+  }, 50);
+
   }
 
   async function refresh() {
@@ -233,7 +244,7 @@ document.querySelector(".logout-btn").addEventListener("click", function (e) {
     document.getElementById("eventDetails").classList.remove("active");
   });
 
-  // ✅ 页面打开先同步一次 + 每1秒自动同步（用户页会自动看到 admin 新增的）
+  // ✅ The page will sync once upon opening + automatically sync every 1 second 
   refresh();
   setInterval(refresh, 1000);
 })();
